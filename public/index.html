@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f8fa" />
+    <meta
+      name="description"
+      content="一个简洁、专注的邮件发送工具。写下想说的话，让沟通轻松发生。"
+    />
+    <title>Sendmail · 写一封好邮件</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23564ee8'/%3E%3Cpath d='M10 13h20v14H10z m0 0 10 8 10-8' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/index.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Sendmail 首页"
+        ><span class="brand-icon"
+          ><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="3" />
+            <path d="m4 7 8 6 8-6" /></svg></span
+        >sendmail<span class="brand-dot">.</span></a
+      >
+      <span class="header-note">少一点繁琐，多一点连接</span>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <span class="eyebrow"
+          ><span></span> SIMPLE MAIL, MEANINGFUL CONNECTIONS</span
+        >
+        <h1 id="page-title">让每一句话，<br />都有<span>回响。</span></h1>
+        <p>从一个想法，到一封邮件。<br />写下想说的话，把重要的消息送达。</p>
+        <div class="mail-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <span class="spark spark-one">✦</span
+          ><span class="spark spark-two">＋</span>
+          <div class="letter">
+            <span class="letter-mark"></span><i></i><i></i><i></i>
+          </div>
+          <div class="envelope"><span></span></div>
+          <span class="art-badge">↗</span>
+        </div>
+        <div class="intro-foot">
+          <span class="tiny-line"></span> 为专注的表达，留一处简单的空间。
+        </div>
+      </section>
+      <section class="composer" aria-labelledby="compose-title">
+        <div class="composer-heading">
+          <div>
+            <span class="section-kicker">NEW MESSAGE</span>
+            <h2 id="compose-title">写封邮件</h2>
+          </div>
+          <span class="compose-icon" aria-hidden="true">↗</span>
+        </div>
+        <form id="emailForm">
+          <div class="address-grid">
+            <div class="field">
+              <label for="from">发件人 <span>From</span></label
+              ><input
+                type="email"
+                id="from"
+                name="from"
+                placeholder="hello@yourdomain.com"
+                autocomplete="email"
+                required
+                maxlength="254"
+                aria-describedby="from-hint"
+              />
+            </div>
+            <div class="field">
+              <label for="to">收件人 <span>To</span></label
+              ><input
+                type="email"
+                id="to"
+                name="to"
+                placeholder="someone@example.com"
+                required
+                maxlength="254"
+              />
+            </div>
+          </div>
+          <p class="field-hint" id="from-hint">
+            请使用已在 Resend 验证域名的发件地址。
+          </p>
+          <div class="field subject-field">
+            <label for="password">发送密码 <span>Password</span></label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="请输入发送密码"
+              autocomplete="current-password"
+              required
+              aria-describedby="password-hint"
+            />
+            <p class="field-hint" id="password-hint">
+              密码验证通过后才能发送邮件。
+            </p>
+          </div>
+          <div class="field subject-field">
+            <label for="subject">邮件主题 <span>Subject</span></label
+            ><input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="给这封邮件起个标题"
+              required
+              maxlength="200"
+            />
+          </div>
+          <div class="field message-field">
+            <label for="message">正文 <span>Message</span></label>
+            <div class="editor">
+              <textarea
+                id="message"
+                name="message"
+                placeholder="你好，\n\n从这里开始，写下你想分享的事…"
+                required
+                maxlength="50000"
+              ></textarea>
+              <div class="editor-footer">
+                <span>纯文本邮件</span
+                ><span
+                  ><output id="characterCount" for="message">0</output>
+                  字符</span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            id="result"
+            class="result"
+            role="status"
+            aria-live="polite"
+            hidden
+          ></div>
+          <div class="form-footer">
+            <span class="send-note"
+              ><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="5" y="10" width="14" height="11" rx="3" />
+                <path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg
+              >用心写下，一键发送</span
+            ><button id="sendButton" type="submit">
+              <span id="buttonLabel">发送邮件</span
+              ><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="m21 3-7 18-4-7-7-4L21 3ZM10 14 21 3" />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <span>简单发送，认真连接。</span
+      ><span
+        >Powered by
+        <a href="https://resend.com" target="_blank" rel="noopener noreferrer"
+          >Resend</a
+        ><span class="footer-divider">/</span>Built on Cloudflare Pages</span
+      >
+    </footer>
+  </body>
+</html>
