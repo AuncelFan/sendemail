@@ -1,0 +1,15 @@
+{
+  "name": "sendemail-pages",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler pages dev public",
+    "build": "node scripts/build.mjs",
+    "deploy": "wrangler pages deploy public",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "wrangler": "4.158.0"
+  }
+}
